@@ -1,0 +1,144 @@
+@font-face {
+    font-family: Seravek;
+    font-weight: bold;
+    src: url(../fonts/Seravek-Bold.ttf);
+}
+
+body{
+	cursor : pointer;
+	color : #2F2933;
+	text-align: center;
+	margin : 0;
+}
+
+canvas, img {
+    image-rendering: optimizeQuality;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+}
+
+.user-image {
+	width: 100%;
+}
+
+.caption {
+	background-color: #D46A6A;
+  padding : 0.7em;
+  border-radius : 0.5em;
+  margin : 0.2em;
+  border : none;
+  outline : none;
+  resize : none;
+  font-size : 1em;
+  font-weight : lighter;
+  font-family: Seravek;
+}
+
+.file-upload{
+	display : inline-block;
+  border-radius : 0.5em;
+	border : dashed;
+  margin-top: 2em;
+	width : 200px;
+	height : 200px;
+}
+
+.title{
+	text-align: center;
+	font-family: Helvetica, Hiragino Sans GB, sans-serif;
+	letter-spacing: -0.05em;
+	font-size: 7em;
+}
+
+.descript-box {
+
+	background: #999;
+	color: #fff;
+
+	font-family:Helvetica, sans-serif;
+	
+	margin-left : 200px;
+  padding: 10px 10px;
+	position: absolute;
+	opacity : 0.6;
+  transition: opacity .5s ease;
+}
+
+.moveUp-enter {
+  transition-duration: .6s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,100%,0);
+  -webkit-transform: translate3d(0,100%,0);
+
+  z-index: 10000;
+}
+
+.moveUp-enter.moveUp-enter-active {
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+
+}
+
+.moveUp-leave {
+  transition-duration: .6s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+
+  opacity: 0.7;
+  z-index: -10000;
+}
+
+.moveUp-leave.moveUp-leave-active {
+  transform: translate3d(0,-15%,0);
+  -webkit-transform: translate3d(0,-15%,0);
+
+  opacity: 0.01;
+}
+
+.moveDown-enter {
+  position: absolute;
+
+  transition-duration: 3s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,-100%,0);
+  -webkit-transform: translate3d(0,-100%,0);
+
+  z-index: 10000;
+}
+
+.moveDown-enter.moveDown-enter-active {
+  transform: translate3d(0,0,0);
+}
+
+.moveDown-leave {
+  position: absolute;
+
+  transition-duration: 1s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+
+  z-index: -10000;
+  opacity: 1;
+}
+
+.moveDown-leave.moveDown-leave-active {
+  transform: translate3d(0,80%,0);
+  -webkit-transform: translate3d(0,80%,0);
+  opacity: 0;
+}
+
+
+.button {
+	position : fixed;
+	right : 20%;
+	bottom :5%;
+}
+
+
