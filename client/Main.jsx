@@ -9,7 +9,7 @@ var Locations 		   = Router.Locations;
 var Location           = Router.Location;
 var Link               = Router.Link;
 
-//var wechat             = require('./wechat.js')();
+var wechat             = require('./wechat.js');
 
 var App = React.createClass({
 
