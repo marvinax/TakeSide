@@ -12,6 +12,9 @@ var users = require('./routes/users');
 var loki = require('lokijs');
 var swig = require('swig')
 
+var sign = require('wx_jsapi_sign');
+var config = require('./config.js')();
+
 var router = express.Router();
 
 var app = express();
@@ -61,16 +64,16 @@ app.post("/upload", function (req, res){
   res.json({upload : "successfully"});
 });
 
-app.post('/getsignature', function(req, res){
+app.post('/wechat', function(req, res){
   var url = req.body.url;
-  console.log(url);
-  signature.getSignature(config)(url, function(error, result) {
+  console.log(config);
+  sign.getSignature(config)(url, function(error, result) {
         if (error) {
             res.json({
                 'error': error
             });
         } else {
-            res.json(result);
+            res.json(result.signature);
         }
     });
 });
