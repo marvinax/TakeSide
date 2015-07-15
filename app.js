@@ -73,7 +73,7 @@ app.post('/wechat', function(req, res){
                 'error': error
             });
         } else {
-            res.json(result.signature);
+            res.json(result);
         }
     });
 });
