@@ -9,15 +9,28 @@ var Locations 		   = Router.Locations;
 var Location           = Router.Location;
 var Link               = Router.Link;
 
+var wechat             = require('./wechat.js');
+
 var App = React.createClass({
-  render: function() {
-    return (
-      <AnimatedLocations hash transitionName="moveUp" popStateTransitionName="fade">
-        <Location path="/" handler={EntryList} />
-        <Location path="/new" handler={New} />
-      </AnimatedLocations>
-    )
-  }
+
+	xhr : new XMLHttpRequest(),
+
+	componentDidMount: function () {
+		this.xhr.open("POST", "/getsignature", true);
+		this.xhr.send({url : "http://everstream.cn"});
+ 		this.xhr.onload = function(e){
+ 			console.log(e);
+ 		}
+	},
+
+	render: function() {
+		return (
+			<AnimatedLocations hash transitionName="moveUp" popStateTransitionName="fade">
+			<Location path="/" handler={EntryList} />
+			<Location path="/new" handler={New} />
+			</AnimatedLocations>
+			)
+	}
 })
 
 React.render(<App />, document.getElementById('content'));
