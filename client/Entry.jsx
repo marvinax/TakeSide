@@ -87,12 +87,17 @@ var Entry = React.createClass({
 	},
 
 	handleClick: function() {
-		WeixinJSBridge.invoke('shareTimeline',{
-			"img_url": this.props.imageData,
-			"link": "http://everstream.cn/",
-			"desc": "无聊图集",
-			"title":"包你无聊"
-		});	
+		wx.onMenuShareTimeline({
+		    title: '陶马文的无聊图集',
+		    link: 'http://everstream.cn',
+		    imgUrl: this.props.imageData,
+		    success: function () { 
+		        console.log('yay shared');
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
 	},
 
 	render: function() {
