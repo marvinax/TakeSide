@@ -31,7 +31,7 @@ var App = React.createClass({
 			});
 
 			wx.checkJsApi({
-				jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				jsApiList: ['onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
 			    success: function(res) {
 			        console.log('yay');
 			    }
