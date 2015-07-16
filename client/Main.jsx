@@ -19,7 +19,7 @@ var App = React.createClass({
  		this.xhr.onload = function(e){
  			console.log(this.response);
 			wx.config({
-				debug: false,
+				debug: true,
 				appId: this.response.appId,
 				timestamp: this.response.timestamp,
 				nonceStr: this.response.nonceStr,
