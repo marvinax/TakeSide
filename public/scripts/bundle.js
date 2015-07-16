@@ -64,14 +64,24 @@
 			this.xhr.send({url : "http://everstream.cn"});
 	 		this.xhr.onload = function(e){
 	 			console.log(this.response);
-				// wx.config({
-				// 	debug: false,
-				// 	appId: '',
-				// 	timestamp: ,
-				// 	nonceStr: '', // 必填，生成签名的随机串
-				// 	signature: '',// 必填，签名，见附录1
-				// 	jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-				// });
+				wx.config({
+					debug: false,
+					appId: this.response.appId,
+					timestamp: this.response.timestamp,
+					nonceStr: this.response.nonceStr,
+					signature: this.response.signature,
+					jsApiList: [
+						'checkJsApi',
+	        			'onMenuShareTimeline'
+	        		]
+				});
+
+				wx.checkJsApi({
+					jsApiList: ['onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				    success: function(res) {
+				        console.log('yay');
+				    }
+				});
 	 		}
 		},
 
