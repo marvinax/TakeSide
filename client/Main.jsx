@@ -14,7 +14,7 @@ var App = React.createClass({
 	xhr : new XMLHttpRequest(),
 
 	componentDidMount: function () {
-		this.xhr.open("POST", "/wechat", true);
+		this.xhr.open("GET", "/wechat", true);
 		this.xhr.send({url : "http://everstream.cn"});
  		this.xhr.onload = function(e){
  			console.log(this.response);

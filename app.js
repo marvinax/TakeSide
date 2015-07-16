@@ -64,9 +64,7 @@ app.post("/upload", function (req, res){
   res.json({upload : "successfully"});
 });
 
-app.post('/wechat', function(req, res){
-  var url = req.body.url;
-  console.log(url);
+app.ge t('/wechat', function(req, res){
   sign.getSignature(config)(url, function(error, result) {
         if (error) {
             res.json({
