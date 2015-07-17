@@ -62,7 +62,9 @@
 		componentDidMount: function () {
 
 	 		var callback = function(){
-	 			alert("something");
+	 			WeixinJSBridge.invoke('hideOptionMenu',{},function(res){
+				    alert(res.err_msg);
+				});
 	 		}
 
 			if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
