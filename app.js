@@ -41,7 +41,7 @@ app.use(logger('dev'));
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-          app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -65,8 +65,8 @@ app.post("/upload", function (req, res){
 });
 
 app.get('/wechat', function(req, res){
-  var url = req.body.url;
-  console.log(url);
+  var url = req.query.url;
+  console.log(req.query);
   sign.getSignature(config)(url, function(error, result) {
         if (error) {
             res.json({

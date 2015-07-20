@@ -32,28 +32,29 @@ var App = React.createClass({
 		    }
 		}
 
-		this.xhr.open("GET", "/wechat", true);
+		this.xhr.open("GET", "/wechat?url=www.everstream.cn/wechat", true);
+		this.xhr.send();
  		this.xhr.onload = function(e){
 
- 		// 	console.log(this.response);
-			// wx.config({
-			// 	debug: true,
-			// 	appId: this.response.appId,
-			// 	timestamp: this.response.timestamp,
-			// 	nonceStr: this.response.nonceStr,
-			// 	signature: this.response.signature,
-			// 	jsApiList: [
-			// 		'checkJsApi',
-			// 		'onMenuShareTimeline'
-			// 	]
-			// });
+ 			console.log(this.response);
+			wx.config({
+				debug: true,
+				appId: this.response.appId,
+				timestamp: this.response.timestamp,
+				nonceStr: this.response.nonceStr,
+				signature: this.response.signature,
+				jsApiList: [
+					'checkJsApi',
+					'onMenuShareTimeline'
+				]
+			});
 
-			// wx.checkJsApi({
-			// 	jsApiList: ['onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-			// 	success: function(res) {
-			// 		console.log('yay');
-			// 	}
-			// });
+			wx.checkJsApi({
+				jsApiList: ['onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				success: function(res) {
+					console.log('yay');
+				}
+			});
  		}
 	},
 
