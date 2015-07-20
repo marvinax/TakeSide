@@ -69,6 +69,7 @@ app.get('/wechat', function(req, res){
   console.log(req.query);
   sign.getSignature(config)(url, function(error, result) {
         if (error) {
+            console.log(error);
             res.json({
                 'error': error
             });
