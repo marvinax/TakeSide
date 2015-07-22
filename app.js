@@ -47,6 +47,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(req, res){
+  res.render('index-real');
+});
+
+app.get('/killin', function(req, res){
   res.render('index');
 });
 
