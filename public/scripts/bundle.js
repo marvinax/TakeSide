@@ -24696,7 +24696,7 @@
 		},
 
 		handleClick: function() {
-			console.log('say something');
+
 			wx.onMenuShareTimeline({
 			    title: '陶马文的无聊图集',
 			    link: 'http://everstream.cn',
