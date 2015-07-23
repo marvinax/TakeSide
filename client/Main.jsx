@@ -32,7 +32,7 @@ var App = React.createClass({
 		    }
 		}
 
-		this.xhr.open("GET", "/wechat?url=www.everstream.cn/wechat", true);
+		this.xhr.open("GET", "/wechat", true);
 		this.xhr.send();
  		this.xhr.onload = function(e){
 
