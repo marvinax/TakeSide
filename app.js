@@ -77,6 +77,7 @@ app.get('/wechat', function(req, res){
                 'error': error
             });
         } else {
+            console.log(result);
             res.json(result);
         }
     });
