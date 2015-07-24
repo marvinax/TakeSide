@@ -36,7 +36,7 @@ var App = React.createClass({
 		this.xhr.send({url: "http://www.everstream.cn/wechat"});
  		this.xhr.onload = function(e){
 
- 			console.log(this.response);
+ 			alert(this.response);
 			wx.config({
 				debug: true,
 				appId: this.response.appId,
