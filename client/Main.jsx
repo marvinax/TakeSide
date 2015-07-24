@@ -32,8 +32,8 @@ var App = React.createClass({
 		    }
 		}
 
-		this.xhr.open("GET", "/wechat", true);
-		this.xhr.send();
+		this.xhr.open("POST", "/wechat", true);
+		this.xhr.send({url: "http://www.everstream.cn/wechat"});
  		this.xhr.onload = function(e){
 
  			console.log(this.response);
