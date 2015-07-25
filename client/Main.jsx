@@ -37,12 +37,17 @@ var App = React.createClass({
 		this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]+"/"}));
  		this.xhr.onload = function(e){
 
+ 			var appId = this.response.appId,
+ 				timestamp = this.response.timestamp,
+ 				nonceStr = this.response.nonceStr,
+ 				signature = this.response.signature;
+
 			wx.config({
 				debug: true,
-				appId: this.response.appId,
-				timestamp: this.response.timestamp,
-				nonceStr: this.response.nonceStr,
-				signature: this.response.signature,
+				appId: appId,
+				timestamp: timestamp,
+				nonceStr: nonceStr,
+				signature: signature,
 				jsApiList: [
 					'checkJsApi',
 					'onMenuShareTimeline'
