@@ -32,6 +32,8 @@ var App = React.createClass({
 		    }
 		}
 
+		alert(location.href);
+
 		this.xhr.open("POST", "/wechat", true);
 		this.xhr.setRequestHeader("Content-type", "application/json");
 		this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]+"/"}));
