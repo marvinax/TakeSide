@@ -45,7 +45,7 @@ var App = React.createClass({
 			wx.config({
 				debug: true,
 				appId: appId,
-				timestamp: parseInt(timestamp),
+				timestamp: alert(parseInt(timestamp)),
 				nonceStr: nonceStr,
 				signature: signature,
 				jsApiList: [
