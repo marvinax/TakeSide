@@ -85,7 +85,6 @@
 			this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]}));
 	 		this.xhr.onload = function(e){
 
-	 			alert(this.response);
 				wx.config({
 					debug: true,
 					appId: this.response.appId,
@@ -98,12 +97,16 @@
 					]
 				});
 
-				wx.checkJsApi({
-					jsApiList: ['onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-					success: function(res) {
-						console.log('yay');
-					}
-				});
+				wx.ready(function(){
+					alert("just show something");
+				})
+
+				// wx.checkJsApi({
+				// 	jsApiList: ['onMenuShareTimeline'],
+				// 	success: function(res) {
+				// 		console.log('yay');
+				// 	}
+				// });
 	 		}
 		},
 
