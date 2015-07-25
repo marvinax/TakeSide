@@ -51,8 +51,8 @@ var App = React.createClass({
 				]
 			});
 
-			wx.error(function(){
-				alert("make shrure this is error");
+			wx.error(function(res){
+				alert(res);
 			})
 
 			// wx.checkJsApi({
