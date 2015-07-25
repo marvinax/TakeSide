@@ -69,8 +69,9 @@ app.post("/upload", function (req, res){
 });
 
 app.post('/wechat', function(req, res){
-  console.log(req.body)
-  sign.getSignature(config)("http://www.everstream.cn/wechat", function(error, result) {
+  console.log(req.body.url);
+  var client_url = req.body.url;
+  sign.getSignature(config)(client_url, function(error, result) {
         if (error) {
             console.log(error);
             res.json({
