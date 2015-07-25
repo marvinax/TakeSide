@@ -78,7 +78,7 @@
 			    }
 			}
 
-			alert(location.href.split('#')[0]);
+			alert(JSON.stringify(location.href.split('#')[0]));
 
 			this.xhr.open("POST", "/wechat", true);
 			this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]}));
