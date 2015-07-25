@@ -98,7 +98,7 @@
 				});
 
 				wx.error(function(){
-					alert("just show something");
+					alert("make shrure this is error");
 				})
 
 				// wx.checkJsApi({
