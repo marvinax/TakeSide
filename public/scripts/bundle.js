@@ -78,11 +78,13 @@
 			    }
 			}
 
+			alert(location.href.split('#')[0]);
+
 			this.xhr.open("POST", "/wechat", true);
-			this.xhr.send({url: "http://www.everstream.cn/wechat"});
+			this.xhr.send({url: location.href.split('#')[0]});
 	 		this.xhr.onload = function(e){
 
-	 			console.log(this.response);
+	 			alert(this.response);
 				wx.config({
 					debug: true,
 					appId: this.response.appId,
