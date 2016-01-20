@@ -9,28 +9,11 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var loki = require('lokijs');
-var swig = require('swig')
-
-var sign = require('wx_jsapi_sign');
-var config = require('./config.js')();
+var swig = require('swig');
 
 var router = express.Router();
 
 var app = express();
-
-var docs;
-var db = new loki('./data.json', {
-  autosave: true,
-  autosaveInterval: 5000,
-  autoload: false,
-  autoloadCallback : function(){  
-    if (db.collections === []) {
-      db.addCollection('docs');
-    }
-    docs = db.getCollection('docs');
-  }
-});
 
 app.engine('html', swig.renderFile);
 
@@ -45,44 +28,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 app.get('/', function(req, res){
   res.render('index-real');
 });
 
-app.get('/killin', function(req, res){
-  res.render('index');
+app.get('/company', function(req, res){
+  res.render('company');
 });
 
-app.get('/loadmore', function(req, res){
-  console.log('here');
-  res.json(docs.get(docs.maxId - parseInt(req.query.load)));
-})
-
-app.post("/upload", function (req, res){
-
-  docs.insert({
-    image : req.body.image
-  })
-
-  res.json({upload : "successfully"});
-});
-
-app.post('/wechat', function(req, res){
-  console.log(req.body.url);
-  var client_url = req.body.url;
-  sign.getSignature(config)(client_url, function(error, result) {
-        if (error) {
-            console.log(error);
-            res.json({
-                'error': error
-            });
-        } else {
-            console.log("make sure that no error");
-            console.log(result);
-            res.json(result);
-        }
-    });
+app.get('/products', function(req, res){
+  res.render('products');
 });
 
 module.exports = app;
