@@ -78,28 +78,31 @@
 			    }
 			}
 
-			alert(JSON.stringify({url: location.href.split('#')[0]}));
+			alert(location.href);
 
 			this.xhr.open("POST", "/wechat", true);
 			this.xhr.setRequestHeader("Content-type", "application/json");
-			this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]+"/"}));
+			this.xhr.send(JSON.stringify({"url": location.href.split('#')[0]}));
 	 		this.xhr.onload = function(e){
+
+	 			var items = JSON.parse(this.response);
+
+	 			var appId = items.appId,
+	 				timestamp = items.timestamp,
+	 				nonceStr = items.nonceStr,
+	 				signature = items.signature;
 
 				wx.config({
 					debug: true,
-					appId: this.response.appId,
-					timestamp: this.response.timestamp,
-					nonceStr: this.response.nonceStr,
-					signature: this.response.signature,
+					appId: appId,
+					timestamp: timestamp,
+					nonceStr: nonceStr,
+					signature: signature,
 					jsApiList: [
 						'checkJsApi',
 						'onMenuShareTimeline'
 					]
 				});
-
-				wx.error(function(res){
-					alert(res);
-				})
 
 				// wx.checkJsApi({
 				// 	jsApiList: ['onMenuShareTimeline'],
