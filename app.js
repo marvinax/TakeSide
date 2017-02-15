@@ -19,7 +19,7 @@ app.engine('html', swig.renderFile);
 
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 8080);
 app.use(logger('dev'));
 
 app.use(bodyParser.json({limit: '50mb'}));
